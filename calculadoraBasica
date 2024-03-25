@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+ * @brief Calculadora Básica
+ * @autor Vinícius Nunes
+ * @since Março 2024
+ * @param a Número inteiro passado como argumento
+ * @param b Número inteiro passado como argumento
+ *@return Retorna a soma dos dois números passados
+ */
+
+//prototipos
+int somar(int a, int b);
+int subtrair(int a, int b);
+int dividir(int a, int b);
+int multiplicar(int a, int b);
+int exponenciar(int a, int b);
+
+int main(){
+
+    printf("Calculadora Basica\n");
+    printf("Escolha a opcao dejesada: \n");
+
+    printf("1 - Somar \n");
+    printf("2 - Subtrair \n");
+    printf("3 - Multiplicar \n");
+    printf("4 - Dividir \n");
+    printf("5 - Potencia de... \n");
+
+    int opcao,valor1,valor2,resultado = 0;
+    scanf("%d",&opcao);
+
+    printf("Digite o primeiro valor: \n");
+    scanf("%d", &valor1);
+    printf("Digite o segundo valor: \n");
+    scanf("%d",&valor2);
+
+    switch (opcao) {
+        case 1:
+            resultado = somar(valor1, valor2);
+            break;
+        case 2:
+            resultado = subtrair(valor1,valor2);
+            break;
+        case 3:
+            resultado = multiplicar(valor1, valor2);
+            break;
+        case 4:
+            resultado = dividir(valor1, valor2);
+            break;
+        case 5:
+            resultado = exponenciar(valor1, valor2);
+            break;
+        default:
+            printf("Opcao Invalida\n");
+    }
+    printf("Resultado da operacao: %d \n", resultado);
+    return 0;
+}
+
+
+
+/*
+ * @brief Calculadora Básica
+ * @autor Vinícius Nunes
+ * @since Março 2024
+ * @param base Valor da base
+ * @param potencia Valor do expoente
+ * @return retorna o exponencial da base pelo expoente
+ */
+
+//funcoes
+int somar(int a, int b){
+    return a + b;
+}
+
+int subtrair(int a, int b){
+    return a - b;
+}
+
+int multiplicar(int a, int b){
+    return a * b;
+}
+
+int dividir(int a, int b){
+    if(b){
+    return a / b;
+    }
+    printf("Nao se pode dividir inteiros por zero\n");
+    exit(1);
+}
+
+int exponenciar(int base, int potencia){
+    int resultado=1;
+    for (int i = 1; i <= potencia; i++){
+        resultado *= base;
+    }
+    return resultado;
+}
