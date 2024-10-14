@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+//trazer quantas letras "a" teria uma frase usando ponteiro
+
+int contarc(char *ps, char ch);
+int main(void) {
+    char palavra[100];
+    fflush(stdin);
+    printf("Digite uma palavra qualquer: \n");
+    gets(palavra);
+    fflush(stdin);
+    printf("Caractere a encontrar: \n");
+    char c = getchar();
+    printf("Encontradas %d letras na palavra\n", contarc(palavra,c));
+    return 0;
+}
+
+int contarc(char *ps, char ch){
+    int total = 0;
+    while(*ps!='\0'){
+        if(*ps == ch)total++;
+        ps++;
+    }
+    return total;
+}
